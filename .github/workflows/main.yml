@@ -32,6 +32,6 @@ jobs:
       - name: Delete old container
         run: docker rm -f my-project-container
       - name: Run docker container
-        run: docker run -d -p 1337:1337 -name my-project-container strapi-image/my-project  
+        run: docker run -d -p 1337:1337 --name my-project-container strapi-image/my-project
 
 
