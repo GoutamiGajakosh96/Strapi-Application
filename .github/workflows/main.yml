@@ -15,10 +15,13 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build docker image
-        run: docker build -t strapi-image/my-project .
+        run: docker build -t strapi-image .
+
+      - name: Image tag
+        run: docker tag strapi-image ${{ secrets.DOCKER_USERNAME }}/strapi-image  
 
       - name: Publish image to docker hub
-        run: docker push strapi-image/my-project:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/strapi-image
 
   deploy:
     needs: build
