@@ -17,10 +17,6 @@ jobs:
       - name: Build docker image
         run: docker build -t strapi-image/my-project .
 
-      - name: Push image to docker hub
-        run: docker push strapi-image/my-project .
-
-      
       - name: Publish image to docker hub
         run: docker push strapi-image/my-project:latest
 
