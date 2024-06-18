@@ -28,7 +28,7 @@ jobs:
     runs-on: [aws-ec2]
     steps:
       - name: Pull image from docker hub    
-        run: docker pull ${{ secrets.DOCKER_USERNAME }}/strapi-image
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/strapi-image:latest
       - name: Run docker container
         run: docker run -d -p 1337:1337 --name my-project-container ${{ secrets.DOCKER_USERNAME }}/strapi-image
 
