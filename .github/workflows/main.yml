@@ -20,6 +20,9 @@ jobs:
       - name: Push image to docker hub
         run: docker push strapi-image/my-project .
 
+      - name: Give tag and Publish image to docker hub
+        run: docker tag strapi-image/my-project strapi-image/my-project:latest
+
       - name: Publish image to docker hub
         run: docker push strapi-image/my-project:latest
 
