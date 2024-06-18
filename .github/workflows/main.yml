@@ -15,7 +15,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build docker image
-        run: docker build -t integrationtest/nodejs-app .
+        run: docker build -t strapi-image/my-project .
 
       - name: Push image to docker hub
         run: docker push strapi-image/my-project .
