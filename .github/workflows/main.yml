@@ -28,10 +28,8 @@ jobs:
     runs-on: [aws-ec2]
     steps:
       - name: Pull image from docker hub    
-        run: docker pull strapi-image/my-project:latest
-      - name: Delete old container
-        run: docker rm -f my-project-container
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/strapi-image
       - name: Run docker container
-        run: docker run -d -p 1337:1337 --name my-project-container strapi-image/my-project
+        run: docker run -d -p 1337:1337 --name my-project-container ${{ secrets.DOCKER_USERNAME }}/strapi-image
 
 
